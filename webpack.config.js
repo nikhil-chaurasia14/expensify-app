@@ -11,7 +11,7 @@ module.exports = (env) => {
         output: {
             // __dirname: returns absolute path to project folder
             // path.join(): joining absolute path with local path
-            path: path.join(__dirname, 'public'),   // Absolute path
+            path: path.join(__dirname, 'public', 'dist'),   // Absolute path
             filename: 'bundle.js'
         },
         module: {
@@ -50,8 +50,8 @@ module.exports = (env) => {
         devtool: isProduction ? 'source-map' : 'inline-source-map',
         devServer: {
             contentBase: path.join(__dirname, 'public'),
-            historyApiFallback: true
+            historyApiFallback: true,
+            publicPath: '/dist/'
         },
-        mode: 'development'
     };
 };
